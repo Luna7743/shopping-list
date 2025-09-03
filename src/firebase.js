@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
 
 // Firebase コンソールの設定
 const firebaseConfig = {
@@ -15,6 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Firestore の参照を export
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
-export default db;
+//認証
+export const auth = getAuth(app);
