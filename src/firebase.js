@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 // Firebase コンソールの設定
 const firebaseConfig = {
@@ -20,3 +20,4 @@ export const db = getFirestore(app);
 
 //認証
 export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();// Googleログイン用

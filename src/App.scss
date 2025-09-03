@@ -2,3 +2,45 @@
   margin: 0;
   padding: 0;
 }
+
+
+.header-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  // background: #cdf4d3;
+
+  &.header-incomplete {
+    background: #cdf4d3; // 未購入ページ用
+  }
+  &.header-complete {
+    background: #f5bb65; // 購入済ページ用
+  }
+  .search-area {
+    display: flex;
+    width: calc(100% - 44rem);
+    min-width: 300px;
+    input {
+      width: calc(100% - 5rem);
+      margin-right: 8px;
+      padding: 0.4rem 1rem;
+      border-radius: 10px;
+      border: none;
+    }
+    .search-btn {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      font-size: 24px;
+      color: #fff;
+      border: solid 2px #fff;
+      border-radius: 10%;
+      cursor: pointer;
+    }
+  }
+}
