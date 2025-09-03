@@ -2,13 +2,15 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
 import Login from "./pages/LoginPage"
-// import db from "./firebase"
+// import IncompletionPage from './pages/IncompletionPage';
+// import {db} from "./firebase"
 
 function App() {
 
   return (
     <>
-  <Login/>
+      <Login />
+      {/* <IncompletionPage/> */}
 
       {/* <BrowsetRouter>
         <Routes> */}
