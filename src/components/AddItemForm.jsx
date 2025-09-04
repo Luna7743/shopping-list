@@ -1,7 +1,7 @@
 // 新しい購入品を追加するフォーム
 import { useState } from 'react';
 
-function AddItemForm({ onAdd }) {
+const AddItemForm = ({ onAdd }) => {
   const [name, setName] = useState('');
   const [count, setCount] = useState(1);
 
@@ -62,6 +62,6 @@ function AddItemForm({ onAdd }) {
       </div>
     </form>
   );
-}
+};
 
 export default AddItemForm;

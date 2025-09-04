@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { useAuth } from '../hooks/useAuth';
-// import { Link, useLocation } from 'react-router-dom';
+import Login from '../pages/LoginPage';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = ({ onSearch }) => {
-  const { user, login, logout } = useAuth();
   //入力中の検索文字列を保持
   const [searchTerm, setSearchTerm] = useState('');
   // 日本語入力の変換中かどうか（IMEの対応に使う）
@@ -12,8 +11,7 @@ const Header = ({ onSearch }) => {
   // 🔹 検索バーのref
   const searchRef = useRef(null);
   // ここで現在のURLを取得
-  // const location = useLocation();
-
+  const location = useLocation();
   //スマホ用検索バー
   const [showSearchBar, setShowSearchBar] = useState(false);
 
@@ -72,64 +70,56 @@ const Header = ({ onSearch }) => {
     >
       <h1 style={{ flexGrow: 1 }}>ショッピングリスト</h1>
 
-      {user ? (
-        <>
-          <div>
-            {/* PC/タブレット用の検索バー */}
-            <div className="search-area">
-              <input
-                type="text"
-                placeholder="検索商品名を入力してください"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={handleKeyDown}
-                onCompositionStart={() => setIsComposing(true)}
-                onCompositionEnd={() => setIsComposing(false)}
-              />
-            </div>
-            <button className="search-btn" onClick={handleSearchClick}>
-              <AiOutlineSearch />
-            </button>
+      <div>
+        {/* PC/タブレット用の検索バー */}
+        <div className="search-area">
+          <input
+            type="text"
+            placeholder="検索商品名を入力してください"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onCompositionStart={() => setIsComposing(true)}
+            onCompositionEnd={() => setIsComposing(false)}
+          />
+        </div>
+        <button className="search-btn" onClick={handleSearchClick}>
+          <AiOutlineSearch />
+        </button>
 
-            <div className="link-area">
-              {/* スマホ用の検索アイコン */}
-              <button className="search-btn-mobile" onClick={toggleSearchBar}>
-                <AiOutlineSearch />
-              </button>
+        <div className="link-area">
+          {/* スマホ用の検索アイコン */}
+          <button className="search-btn-mobile" onClick={toggleSearchBar}>
+            <AiOutlineSearch />
+          </button>
 
-              <nav>
-                {/* {location.pathname === '/' ? (
-                  <Link to="/completed">購入済一覧へ</Link>
-                ) : (
-                  <Link to="/">未購入一覧へ</Link>
-                )} */}
-              </nav>
-            </div>
-          </div>
+          <nav>
+            {location.pathname === '/incompletion' ? (
+              <Link to="/completion">購入済一覧へ</Link>
+            ) : (
+              <Link to="/incompletion">未購入一覧へ</Link>
+            )}
+          </nav>
+          <Login />
+        </div>
+      </div>
 
-          {/* スマホ用 アイコン押したら出る検索バー */}
-          {showSearchBar && (
-            <div className="dropdown-search" ref={searchRef}>
-              <input
-                type="text"
-                placeholder="検索商品名を入力してください"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={handleKeyDown}
-                onCompositionStart={() => setIsComposing(true)}
-                onCompositionEnd={() => setIsComposing(false)}
-              />
-              <button className="search-btn" onClick={handleSearchClick}>
-                <AiOutlineSearch />
-              </button>
-            </div>
-          )}
-
-          <button onClick={logout}>ログアウト</button>
-        </>
-      ) : (
-        // 未ログイン時はログインボタンのみ
-        <button onClick={login}>Googleでログイン</button>
+      {/* スマホ用 アイコン押したら出る検索バー */}
+      {showSearchBar && (
+        <div className="dropdown-search" ref={searchRef}>
+          <input
+            type="text"
+            placeholder="検索商品名を入力してください"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onCompositionStart={() => setIsComposing(true)}
+            onCompositionEnd={() => setIsComposing(false)}
+          />
+          <button className="search-btn" onClick={handleSearchClick}>
+            <AiOutlineSearch />
+          </button>
+        </div>
       )}
     </header>
   );

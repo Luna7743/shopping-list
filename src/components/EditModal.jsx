@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function EditModal({ item, onClose, onUpdate }) {
+const EditModal = ({ item, onClose, onUpdate }) => {
   const [name, setName] = useState(item.name);
   const [count, setCount] = useState(item.count);
   // 日本語入力の変換中かどうか（IMEの対応に使う）
@@ -62,6 +62,6 @@ function EditModal({ item, onClose, onUpdate }) {
       </div>
     </div>
   );
-}
+};
 
 export default EditModal;

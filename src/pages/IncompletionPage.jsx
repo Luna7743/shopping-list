@@ -19,10 +19,16 @@ import EditModal from '../components/EditModal';
 import AddItemSort from '../components/AddItemSort';
 
 const IncompletionPage = () => {
+  //状態管理（state） 部分
+  //useAuth からユーザー情報を取得
   const { user } = useAuth();
+  //useState でコンポーネントの状態を管理
   const [items, setItems] = useState([]);
+  //チェックボックスで選択されたアイテムのIDリスト
   const [checkedIds, setCheckedIds] = useState([]);
+  //現在編集中のアイテム を保持
   const [editingItem, setEditingItem] = useState(null);
+  //検索バーに入力された文字列
   const [searchTerm, setSearchTerm] = useState('');
   const [sortedItems, setSortedItems] = useState([]);
 
@@ -32,9 +38,9 @@ const IncompletionPage = () => {
     if (!user) return;
 
     //Firestore の参照を作る
-    const itemRef = collection(db, 'users', user.uid, 'items');
+    const itemsRef = collection(db, 'users', user.uid, 'items');
     //onSnapshot でリアルタイム監視
-    const unsub = onSnapshot(itemRef, (snapshot) => {
+    const unsub = onSnapshot(itemsRef, (snapshot) => {
       const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setItems(data.filter((item) => !item.completed)); //未購入のみ
     });
@@ -91,8 +97,7 @@ const IncompletionPage = () => {
   //検索適用
   const filteredItems =
     //ソート済みリストがある場合はそれを優先、なければ元の items リストを使用
-    (sortedItems.length > 0 ? sortedItems : items)
-      .filter(
+    (sortedItems.length > 0 ? sortedItems : items).filter(
       //大文字・小文字を区別せずに商品名で検索できるように
       (item) => item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -104,11 +109,20 @@ const IncompletionPage = () => {
         <AddItemForm onAdd={handleAddItem} />
 
         <div className="button-area">
-          <ActionButton label="購入" onClick={handleComplete} />
-          <ActionButton label="削除" onClick={handleDelete} />
+          <ActionButton
+            label="購入"
+            className="complete-button"
+            onClick={handleComplete}
+          />
+          <ActionButton
+            label="削除"
+            className="delete-button"
+            onClick={handleDelete}
+          />
           {checkedIds.length === 1 && (
             <ActionButton
               label="編集"
+              className="edit-button"
               onClick={() => {
                 const target = items.find((item) => item.id === checkedIds[0]);
                 setEditingItem(target);

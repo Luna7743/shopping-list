@@ -71,8 +71,16 @@ const CompletionPage = () => {
       <Header onSearch={setSearchTerm} />
       <main>
         <div className="button-area">
-          <ActionButton label="購入" onClick={handleBack} />
-          <ActionButton label="削除" onClick={handleDelete} />
+          <ActionButton
+            label="戻す"
+            className="back-button"
+            onClick={handleBack}
+          />
+          <ActionButton
+            label="削除"
+            className="delete-button"
+            onClick={handleDelete}
+          />
         </div>
 
         <ItemList
