@@ -2,6 +2,7 @@
 import React from 'react';
 
 const ItemList = ({ title, items, checkedIds, setCheckedIds, SortComponent, }) => {
+  // チェックボックスの処理
   const handleCheck = (id) => {
     setCheckedIds((prev) =>
       prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
@@ -28,7 +29,12 @@ const ItemList = ({ title, items, checkedIds, setCheckedIds, SortComponent, }) =
                 <p className="list-item">{item.name}</p>
                 <div className="item-part">
                   <span>個数: {item.count}</span>
-                  <span>作成日: {item.createdAt}</span>
+                  <span>
+                    作成日:{' '}
+                    {item.createdAt?.toDate
+                      ? item.createdAt.toDate().toLocaleDateString()
+                      : new Date(item.createdAt).toLocaleDateString()}
+                  </span>
                 </div>
               </div>
             </div>
@@ -38,9 +44,6 @@ const ItemList = ({ title, items, checkedIds, setCheckedIds, SortComponent, }) =
     </div>
   );
 }
-
-
-
 
 
 export default ItemList;
