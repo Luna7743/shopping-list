@@ -1,22 +1,31 @@
-*{
+* {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
 
+body {
+  overflow: hidden;
+}
 
+// header部分
 .header-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10px;
   width: 100%;
-  padding: 16px 20px;
-  // background: #cdf4d3;
+  padding: 20px;
 
-  &.header-incomplete {
-    background: #cdf4d3; // 未購入ページ用
-  }
   &.header-complete {
-    background: #f5bb65; // 購入済ページ用
+    background: rgb(248, 188, 76);
+  }
+  &.header-incomplete {
+    background: rgb(193, 250, 108);
+  }
+  h1 {
+    flex: 1;
   }
   .search-area {
     display: flex;
@@ -25,11 +34,11 @@
     input {
       width: calc(100% - 5rem);
       margin-right: 8px;
-      padding: 0.4rem 1rem;
+      padding: .4rem 1rem;
       border-radius: 10px;
       border: none;
     }
-    .search-btn {
+    .search-btn{
       all: unset;
       display: flex;
       align-items: center;
@@ -39,8 +48,96 @@
       font-size: 24px;
       color: #fff;
       border: solid 2px #fff;
-      border-radius: 10%;
+      border-radius: 10px;
       cursor: pointer;
     }
+  }
+
+  .link-area{
+    nav{
+      display: flex;
+      flex-direction: column; /* リンク自体を縦並びに */
+      gap: 12px;
+      a{
+        display: flex;
+        flex-direction: column; /* アイコンと文字を縦に並べる */
+        align-items: center;     /* 中央揃え */
+        text-decoration: none;   /* 下線消す */
+        font-size: 12px;
+        gap: 4px;
+        .completion-icon{
+          font-size: 22px;
+        }
+        .incompletion-icon{
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+
+//ログイン関係
+.login-layout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  margin: 10rem auto;
+  text-align: center;
+}
+.login-area{
+  p{
+    font-size: 26px;
+    font-weight: bold;
+  }
+  button{
+    all: unset;
+    margin-top: 12px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px 50px;
+    border-radius: 40px;
+    background-image: linear-gradient(90deg, #d4f022, #5df7b7);
+    cursor: pointer;
+  }
+}
+
+.logout-area{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  .logout-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 26px;
+  }
+  button{
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+  }
+}
+
+// スマホ
+@media (max-width: 767px) {
+  .header-list {
+    .search-area {
+      display: none;
+    }
+  }
+}
+
+// タブレット
+@media (min-width: 768px) {
+  .search-btn-mobile {
+    display: none; // スマホ用アイコンは非表示
+  }
+  .dropdown-search {
+    display: none; // 下に出る検索バーも非表示
   }
 }
