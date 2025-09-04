@@ -1,20 +1,31 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
 }
 
 .header-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10px;
   width: 100%;
-  padding: 16px 20px;
-}
-.header-list.header-incomplete {
-  background: #cdf4d3;
+  padding: 20px;
 }
 .header-list.header-complete {
-  background: #f5bb65;
+  background: rgb(248, 188, 76);
+}
+.header-list.header-incomplete {
+  background: rgb(193, 250, 108);
+}
+.header-list h1 {
+  flex: 1;
 }
 .header-list .search-area {
   display: flex;
@@ -38,6 +49,84 @@
   font-size: 24px;
   color: #fff;
   border: solid 2px #fff;
-  border-radius: 10%;
+  border-radius: 10px;
   cursor: pointer;
+}
+.header-list .link-area nav {
+  display: flex;
+  flex-direction: column; /* リンク自体を縦並びに */
+  gap: 12px;
+}
+.header-list .link-area nav a {
+  display: flex;
+  flex-direction: column; /* アイコンと文字を縦に並べる */
+  align-items: center; /* 中央揃え */
+  text-decoration: none; /* 下線消す */
+  font-size: 12px;
+  gap: 4px;
+}
+.header-list .link-area nav a .completion-icon {
+  font-size: 22px;
+}
+.header-list .link-area nav a .incompletion-icon {
+  font-size: 22px;
+}
+
+.login-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  margin: 10rem auto;
+  text-align: center;
+}
+
+.login-area p {
+  font-size: 26px;
+  font-weight: bold;
+}
+.login-area button {
+  all: unset;
+  margin-top: 12px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px 50px;
+  border-radius: 40px;
+  background-image: linear-gradient(90deg, #d4f022, #5df7b7);
+  cursor: pointer;
+}
+
+.logout-area {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.logout-area .logout-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 26px;
+}
+.logout-area button {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+@media (max-width: 767px) {
+  .header-list .search-area {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .search-btn-mobile {
+    display: none;
+  }
+  .dropdown-search {
+    display: none;
+  }
 }/*# sourceMappingURL=App.css.map */

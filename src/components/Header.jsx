@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import Login from '../pages/LoginPage';
+import Login from './Login';
 import { Link, useLocation } from 'react-router-dom';
+import Logout from './Logout';
+import { PiShoppingCartFill } from 'react-icons/pi';
+import { PiShoppingCartLight } from 'react-icons/pi';
 
 const Header = ({ onSearch }) => {
   //入力中の検索文字列を保持
@@ -60,17 +63,15 @@ const Header = ({ onSearch }) => {
   };
 
   return (
-    <header
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        padding: '10px',
-        background: '#f5f5f5',
-      }}
-    >
-      <h1 style={{ flexGrow: 1 }}>ショッピングリスト</h1>
-
-      <div>
+    <header>
+      <div
+        className={`header-list ${
+          location.pathname === '/completion'
+            ? 'header-complete'
+            : 'header-incomplete'
+        }`}
+      >
+        <h1>お買い物リスト</h1>
         {/* PC/タブレット用の検索バー */}
         <div className="search-area">
           <input
@@ -82,10 +83,10 @@ const Header = ({ onSearch }) => {
             onCompositionStart={() => setIsComposing(true)}
             onCompositionEnd={() => setIsComposing(false)}
           />
+          <button className="search-btn" onClick={handleSearchClick}>
+            <AiOutlineSearch />
+          </button>
         </div>
-        <button className="search-btn" onClick={handleSearchClick}>
-          <AiOutlineSearch />
-        </button>
 
         <div className="link-area">
           {/* スマホ用の検索アイコン */}
@@ -95,15 +96,20 @@ const Header = ({ onSearch }) => {
 
           <nav>
             {location.pathname === '/incompletion' ? (
-              <Link to="/completion">購入済一覧へ</Link>
+              <Link to="/completion">
+                <PiShoppingCartFill className="completion-icon" />
+                購入済一覧へ
+              </Link>
             ) : (
-              <Link to="/incompletion">未購入一覧へ</Link>
+              <Link to="/incompletion">
+                <PiShoppingCartLight className="incompletion-icon" />
+                未購入一覧へ
+              </Link>
             )}
           </nav>
-          <Login />
         </div>
+        <Logout />
       </div>
-
       {/* スマホ用 アイコン押したら出る検索バー */}
       {showSearchBar && (
         <div className="dropdown-search" ref={searchRef}>
