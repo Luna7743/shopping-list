@@ -20,7 +20,7 @@ function App() {
           </Routes>
         ) : (
           // 🔹 ログイン画面
-            <div className="login-layout">
+          <div className="login-layout">
             <Login />
           </div>
         )}

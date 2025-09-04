@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: serif;
   box-sizing: border-box;
 }
 
@@ -29,7 +29,7 @@ body {
 }
 .header-list .search-area {
   display: flex;
-  width: calc(100% - 44rem);
+  width: calc(100% - 34rem);
   min-width: 300px;
 }
 .header-list .search-area input {
@@ -62,6 +62,7 @@ body {
   flex-direction: column; /* アイコンと文字を縦に並べる */
   align-items: center; /* 中央揃え */
   text-decoration: none; /* 下線消す */
+  color: #000;
   font-size: 12px;
   gap: 4px;
 }
@@ -115,6 +116,143 @@ body {
   flex-direction: column;
   align-items: center;
   font-size: 12px;
+}
+
+main {
+  padding: 0 0 0 30px;
+}
+main .list-add {
+  display: flex;
+  margin: 10px 0;
+  gap: 10px;
+}
+main .list-add .input-add-area {
+  width: calc(100% - 56rem);
+  min-width: 120px;
+}
+main .list-add .input-add-area .input-add {
+  width: 100%;
+  padding: 5px;
+  border: solid 1px #000;
+  border-radius: 10px;
+}
+main .list-add .count {
+  display: flex;
+  gap: 4px;
+}
+main .list-add .count input {
+  width: 2rem;
+  text-align: center;
+  border: solid 1px #000;
+  border-radius: 10px;
+  -moz-appearance: textfield;
+}
+main .list-add .count input::-webkit-inner-spin-button, main .list-add .count input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+main .list-add .count button {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 0px 10px;
+  border: solid 1px #000;
+  border-radius: 10px;
+  cursor: pointer;
+}
+main .list-add .count .add-btn {
+  padding: 0 25px;
+  border-radius: 40px;
+  border: none;
+  color: #fff;
+  background: #13a4f8;
+  box-shadow: 1px 1px 1px #6b6868;
+  text-shadow: 1px 1px 0 #161212;
+}
+main .list-add .count .add-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+main .button-area {
+  margin-bottom: 30px;
+}
+main .button-area button {
+  margin-right: 1rem;
+  padding: 10px 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+main .button-area .complete-button {
+  background: linear-gradient(#137ef8, rgb(6.2222222222, 101.3333333333, 209.7777777778));
+  box-shadow: 0 6px #0b4892;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+main .button-area .complete-button:hover {
+  box-shadow: 0 4px #0b4892;
+  transform: translateY(2px);
+}
+main .button-area .complete-button:active {
+  box-shadow: 0 1px #0b4892;
+  transform: translateY(4px);
+}
+main .button-area .delete-button {
+  background: linear-gradient(#f0260f, rgb(192, 30.4, 12));
+  box-shadow: 0 6px #950b0b;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+main .button-area .delete-button:hover {
+  box-shadow: 0 4px #950b0b;
+  transform: translateY(2px);
+}
+main .button-area .delete-button:active {
+  box-shadow: 0 1px #950b0b;
+  transform: translateY(4px);
+}
+main .button-area .edit-button {
+  background: linear-gradient(#4caf50, rgb(60.5577689243, 139.4422310757, 63.7450199203));
+  box-shadow: 0 6px #07710c;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+main .button-area .edit-button:hover {
+  box-shadow: 0 4px #07710c;
+  transform: translateY(2px);
+}
+main .button-area .edit-button:active {
+  box-shadow: 0 1px #07710c;
+  transform: translateY(4px);
+}
+main .button-area .back-button {
+  background: linear-gradient(#edde11, rgb(189.4133858268, 177.4251968504, 13.5866141732));
+  box-shadow: 0 6px #a3990c;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+main .button-area .back-button:hover {
+  box-shadow: 0 4px #a3990c;
+  transform: translateY(2px);
+}
+main .button-area .back-button:active {
+  box-shadow: 0 1px #a3990c;
+  transform: translateY(4px);
 }
 
 @media (max-width: 767px) {

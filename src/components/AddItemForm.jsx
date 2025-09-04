@@ -1,5 +1,7 @@
 // 新しい購入品を追加するフォーム
 import { useState } from 'react';
+import { GoPlus } from 'react-icons/go';
+import { LuMinus } from 'react-icons/lu';
 
 const AddItemForm = ({ onAdd }) => {
   const [name, setName] = useState('');
@@ -26,7 +28,7 @@ const AddItemForm = ({ onAdd }) => {
   };
 
   return (
-    <form className="memo-add" onSubmit={handleSubmit}>
+    <form className="list-add" onSubmit={handleSubmit}>
       {/* 商品名入力 */}
       <div className="input-add-area">
         <input
@@ -50,10 +52,10 @@ const AddItemForm = ({ onAdd }) => {
           type="button"
           onClick={() => setCount((c) => Math.max(1, c - 1))}
         >
-          -
+          <LuMinus />
         </button>
         <button type="button" onClick={() => setCount((c) => c + 1)}>
-          +
+          <GoPlus />
         </button>
         {/* 追加ボタン */}
         <button type="submit" className="add-btn">
