@@ -134,8 +134,8 @@ main {
     margin: 10px 0;
     gap: 10px;
     .input-add-area {
-      width: calc(100% - 56rem);
-      min-width: 120px;
+      width: calc(100% - 46rem);
+      min-width: 200px;
       .input-add {
         width: 100%;
         padding: 5px;
@@ -208,6 +208,10 @@ main {
     }
   }
 
+  .completion-button-area{
+    margin-top: 3.1rem;
+  }
+
   .button-area {
     margin-bottom: 30px;
     button {
@@ -231,7 +235,139 @@ main {
   }
 
   // 一覧エリア
-  
+  .item-area{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px);
+    .list-title{
+      // 縮まない
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 10px;
+      .sort-area{
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        .sort-content{
+          display: flex;
+          gap: 8px;
+          .order-by{
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+
+    ul{
+      margin: 0px 20px 30px 10px;
+
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 8px;
+      li{
+        list-style: none;
+        margin-left: 10px;
+        .list-row{
+          display: flex;
+          margin-bottom: 10px;
+          width: 100%;
+          min-width: 400px;
+          .list-tag{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border: solid 1px #000;
+            margin-left: 8px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            min-width: 0;
+            color: #000;
+            .list-item{
+              flex: 1;
+              white-space: nowrap;
+              overflow-x: auto;
+              overflow-y: hidden;
+            }
+            .item-part{
+              flex-shrink: 0; // ← 幅が縮まないようにする
+              display: flex;
+              gap: 15px;
+              padding-left: 12px;
+              min-width: 150px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 編集モーダル
+.madal-backdrop{
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .modal{
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    h2{
+      border-bottom: solid 1px #bfbdbd;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+    }
+    form > div{
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      label{
+        width: 80px;
+        text-align: left;
+        margin-right: 10px;
+      }
+      input{
+        flex: 1;
+        padding: 5px;
+        border: solid 1px #ccc;
+        border-radius: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .modal-actions{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+    button{
+      all: unset;
+      padding: 3px 8px;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 1px 1px 1px #6b6868;
+      text-shadow: 1px 1px 0 #161212;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      &:hover{
+        opacity: .8;
+      }
+    }
+    .cancel{
+      background: #c4c6c4;
+    }
+    .update{
+      background: #137ef8;
+    }
+  }
 }
 
 // スマホ
