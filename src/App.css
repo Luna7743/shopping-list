@@ -127,8 +127,8 @@ main .list-add {
   gap: 10px;
 }
 main .list-add .input-add-area {
-  width: calc(100% - 56rem);
-  min-width: 120px;
+  width: calc(100% - 46rem);
+  min-width: 200px;
 }
 main .list-add .input-add-area .input-add {
   width: 100%;
@@ -172,6 +172,9 @@ main .list-add .count .add-btn {
 main .list-add .count .add-btn:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+main .completion-button-area {
+  margin-top: 3.1rem;
 }
 main .button-area {
   margin-bottom: 30px;
@@ -254,10 +257,224 @@ main .button-area .back-button:active {
   box-shadow: 0 1px #a3990c;
   transform: translateY(4px);
 }
+main .item-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+}
+main .item-area .list-title {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+main .item-area .list-title .sort-area {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+main .item-area .list-title .sort-area .sort-content {
+  display: flex;
+  gap: 8px;
+}
+main .item-area .list-title .sort-area .sort-content .order-by {
+  border-radius: 5px;
+}
+main .item-area ul {
+  margin: 0px 20px 30px 10px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+main .item-area ul li {
+  list-style: none;
+  margin-left: 10px;
+}
+main .item-area ul li .list-row {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  min-width: 400px;
+}
+main .item-area ul li .list-row .list-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: solid 1px #000;
+  margin-left: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  min-width: 0;
+  color: #000;
+}
+main .item-area ul li .list-row .list-tag .list-item {
+  flex: 1;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+main .item-area ul li .list-row .list-tag .item-part {
+  flex-shrink: 0;
+  display: flex;
+  gap: 15px;
+  padding-left: 12px;
+  min-width: 150px;
+}
+
+.madal-backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.madal-backdrop .modal {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.madal-backdrop .modal h2 {
+  border-bottom: solid 1px #bfbdbd;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+}
+.madal-backdrop .modal form > div {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.madal-backdrop .modal form > div label {
+  width: 80px;
+  text-align: left;
+  margin-right: 10px;
+}
+.madal-backdrop .modal form > div input {
+  flex: 1;
+  padding: 5px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.madal-backdrop .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+.madal-backdrop .modal-actions button {
+  all: unset;
+  padding: 3px 8px;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #6b6868;
+  text-shadow: 1px 1px 0 #161212;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.madal-backdrop .modal-actions button:hover {
+  opacity: 0.8;
+}
+.madal-backdrop .modal-actions .cancel {
+  background: #c4c6c4;
+}
+.madal-backdrop .modal-actions .update {
+  background: #137ef8;
+}
 
 @media (max-width: 767px) {
+  main {
+    padding: 0 0 0 10px;
+  }
+  main .list-add {
+    display: flex;
+    gap: 5px;
+  }
+  main .list-add .input-add-area {
+    width: 50%;
+    min-width: 0;
+  }
+  main .list-add .count button {
+    padding: 3px;
+  }
+  .header-list {
+    position: relative;
+  }
+  .header-list h1 {
+    font-size: 5vw;
+  }
   .header-list .search-area {
     display: none;
+  }
+  .header-list .link-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-list .link-area .search-btn-mobile {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+    border: solid 2px #fdf9f9;
+    color: #f9f6f6;
+    padding: 3px;
+    border-radius: 8px;
+  }
+  .dropdown-search {
+    position: absolute;
+    width: 100%;
+    padding: 8px;
+    background: #cacaca;
+    display: flex;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  .dropdown-search input {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding-left: 10px;
+  }
+  .dropdown-search button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border: solid 1px #fff;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+  }
+  main .item-area ul li .list-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+  }
+  main .item-area ul li .list-row input[type=checkbox] {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+  }
+  main .item-area ul li .list-tag .list-item {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+  }
+  main .item-area ul li .list-tag .item-part {
+    display: flex;
+    gap: 6px;
+    font-size: 12px;
+    color: #666;
+    flex-shrink: 0; /* 個数・日付は省略されない */
   }
 }
 @media (min-width: 768px) {

@@ -11,7 +11,7 @@ const ItemList = ({ title, items, checkedIds, setCheckedIds, SortComponent, }) =
 
   return (
     <div className="item-area">
-      <div className="list-header">
+      <div className="list-title">
         <h2>{title}</h2>
         {SortComponent && <div className="sort-area">{SortComponent}</div>}
       </div>

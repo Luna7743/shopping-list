@@ -70,7 +70,7 @@ const CompletionPage = () => {
     <>
       <Header onSearch={setSearchTerm} />
       <main>
-        <div className="button-area">
+        <div className="button-area completion-button-area">
           <ActionButton
             label="戻す"
             className="back-button"

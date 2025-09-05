@@ -1,17 +1,20 @@
 // アイテムリストの並び順を切り替える
 import { useState, useEffect } from 'react';
 
-const AddItemSort = ({ className, items, onSortedItemsChange }) => {
+const AddItemSort = ({ items, onSortedItemsChange }) => {
   //現在選択されているソート方法を保持
   const [sortOption, setSortOption] = useState('1');
 
   useEffect(() => {
     // ソート処理を一括管理
     const sorted = [...items].sort((a, b) => {
+      const dateA = a.createdAt?.toDate ? a.createdAt.toDate() : new Date(0);
+      const dateB = b.createdAt?.toDate ? b.createdAt.toDate() : new Date(0);
+
       if (sortOption === '1') {
-        return new Date(a.createdAt) - new Date(b.createdAt);
+        return dateA - dateB;
       } else if (sortOption === '2') {
-        return new Date(b.createdAt) - new Date(a.createdAt);
+        return dateB - dateA;
       } else if (sortOption === '3') {
         return a.name.localeCompare(b.name);
       } else if (sortOption === '4') {
@@ -35,9 +38,7 @@ const AddItemSort = ({ className, items, onSortedItemsChange }) => {
   };
 
   return (
-    <div>
-      {/* <div className="sort-area"> */}
-      <div className={className}>
+      <div className="sort-content">
         <span>表示順</span>
         <select
           name="orderby"
@@ -53,7 +54,7 @@ const AddItemSort = ({ className, items, onSortedItemsChange }) => {
           <option value="6">個数多い</option>
         </select>
       </div>
-    </div>
+
   );
 };
 
