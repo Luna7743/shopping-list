@@ -78,6 +78,9 @@ const IncompletionPage = () => {
 
   //削除
   const handleDelete = async () => {
+    const ok = window.confirm('選択したリストを削除しますか？');
+    if (!ok) return; // キャンセルなら何もしない
+
     for (const id of checkedIds) {
       const docRef = doc(db, 'users', user.uid, 'items', id);
       await deleteDoc(docRef);
