@@ -1,3 +1,5 @@
+$white : #fff;
+
 * {
   margin: 0;
   padding: 0;
@@ -19,13 +21,14 @@ body {
   padding: 20px;
 
   &.header-complete {
-    background: rgb(248, 188, 76);
+    background: rgb(220, 142, 25);
   }
   &.header-incomplete {
-    background: rgb(193, 250, 108);
+    background: rgb(160, 208, 88);
   }
   h1 {
     flex: 1;
+    color: $white;
   }
   .search-area {
     display: flex;
@@ -46,8 +49,8 @@ body {
       width: 1.8rem;
       height: 1.8rem;
       font-size: 24px;
-      color: #fff;
-      border: solid 2px #fff;
+      color: $white;
+      border: solid 2px $white;
       border-radius: 10px;
       cursor: pointer;
     }
@@ -63,7 +66,7 @@ body {
         flex-direction: column; /* アイコンと文字を縦に並べる */
         align-items: center; /* 中央揃え */
         text-decoration: none; /* 下線消す */
-        color: #000;
+        color: $white;
         font-size: 12px;
         gap: 4px;
         .completion-icon {
@@ -108,6 +111,7 @@ body {
 .logout-area {
   display: flex;
   justify-content: center;
+  color: $white;
   cursor: pointer;
   .logout-icon {
     display: flex;
@@ -372,6 +376,12 @@ main {
 
 // スマホ
 @media (max-width: 767px) {
+// ログイン画面
+.login-layout{
+  width: 100vw;
+  height: 60vh;
+}
+
   main {
     padding: 0 0 0 10px;
     .list-add {
@@ -407,11 +417,21 @@ main {
         // アイコンを表示
         display: inline-flex;
         align-items: center;
-        font-size: 24px;
+        font-size: 16px;
         border: solid 2px #fdf9f9;
         color: #f9f6f6;
         padding: 3px;
         border-radius: 8px;
+      }
+      nav{
+        a{
+          font-size: 10px;
+        }
+      }
+    }
+    .logout-area{
+      button{
+        font-size: 10px;
       }
     }
   }
