@@ -17,7 +17,7 @@ const AddItemForm = ({ onAdd }) => {
     const newItem = {
       name,
       count,
-      completed: false, //未購入状態
+      purchased: false, //未購入状態
     };
 
     // 親(App.jsx)から渡された関数を呼ぶ。これで親のstateが更新される

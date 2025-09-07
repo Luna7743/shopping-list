@@ -20,10 +20,10 @@ body {
   width: 100%;
   padding: 20px;
 
-  &.header-complete {
+  &.header-purchased {
     background: rgb(220, 142, 25);
   }
-  &.header-incomplete {
+  &.header-unpurchased {
     background: rgb(160, 208, 88);
   }
   h1 {
@@ -69,10 +69,10 @@ body {
         color: $white;
         font-size: 12px;
         gap: 4px;
-        .completion-icon {
+        .purchased-icon {
           font-size: 22px;
         }
-        .incompletion-icon {
+        .unpurchased-icon {
           font-size: 22px;
         }
       }
@@ -212,7 +212,7 @@ main {
     }
   }
 
-  .completion-button-area {
+  .purchased-button-area {
     margin-top: 3.1rem;
   }
 
@@ -224,7 +224,7 @@ main {
       font-size: 14px;
       font-weight: bold;
     }
-    .complete-button {
+    .purchased-button {
       @include button-3d(#137ef8, #0b4892);
     }
     .delete-button {

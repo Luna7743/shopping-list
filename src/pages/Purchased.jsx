@@ -1,34 +1,24 @@
-// 未購入
+// 購入済み
+
 import { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import {
   collection, //コレクションやドキュメントを参照
-  addDoc, //データを作る
   onSnapshot, //データを読む
   doc, //コレクションやドキュメントを参照
   updateDoc, //データを更新
   deleteDoc, //データを消す
-  serverTimestamp, //時間を記録
 } from 'firebase/firestore';
 import { useAuth } from '../hooks/useAuth';
 import Header from '../components/Header';
 import ActionButton from '../components/ActionButton';
-import AddItemForm from '../components/AddItemForm';
 import ItemList from '../components/ItemList';
-import EditModal from '../components/EditModal';
 import AddItemSort from '../components/AddItemSort';
 
-const IncompletionPage = () => {
-  //状態管理（state） 部分
-  //useAuth からユーザー情報を取得
+const Purchased = () => {
   const { user } = useAuth();
-  //useState でコンポーネントの状態を管理
   const [items, setItems] = useState([]);
-  //チェックボックスで選択されたアイテムのIDリスト
   const [checkedIds, setCheckedIds] = useState([]);
-  //現在編集中のアイテム を保持
-  const [editingItem, setEditingItem] = useState(null);
-  //検索バーに入力された文字列
   const [searchTerm, setSearchTerm] = useState('');
   const [sortedItems, setSortedItems] = useState([]);
 
@@ -42,35 +32,18 @@ const IncompletionPage = () => {
     //onSnapshot でリアルタイム監視
     const unsub = onSnapshot(itemsRef, (snapshot) => {
       const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      setItems(data.filter((item) => !item.completed)); //未購入のみ
+      setItems(data.filter((item) => item.purchased)); //未購入のみ
     });
     return () => unsub();
   }, [user]);
 
-  //アイテムを追加
-  const handleAddItem = async (item) => {
-    //ログアウト状態のときに Firestore にアクセスしないように
-    if (!user) return;
-
-    //Firestore の参照を作る
-    const itemsRef = collection(db, 'users', user.uid, 'items');
-
-    // 新しいドキュメントを追加
-    await addDoc(itemsRef, {
-      ...item,
-      completed: false,
-      createdAt: serverTimestamp(),
-    });
-  };
-
-  // 各ボタンの処理
-  //購入済みにする
-  const handleComplete = async () => {
+  // 戻す（未購入に戻す）
+  const handleBack = async () => {
     for (const id of checkedIds) {
       //Firestore の参照を作る
       const docRef = doc(db, 'users', user.uid, 'items', id);
       //updateDoc でフィールドを更新
-      await updateDoc(docRef, { completed: true });
+      await updateDoc(docRef, { purchased: false });
     }
     //チェック状態をリセット
     setCheckedIds([]);
@@ -88,15 +61,6 @@ const IncompletionPage = () => {
     setCheckedIds([]);
   };
 
-  //編集
-  const handleUpdate = async (updated) => {
-    const docRef = doc(db, 'users', user.uid, 'items', updated.id);
-    await updateDoc(docRef, { ...updated });
-    //編集用モーダルを閉じる
-    setEditingItem(null);
-    setCheckedIds([]);
-  };
-
   //検索適用
   const filteredItems =
     //ソート済みリストがある場合はそれを優先、なければ元の items リストを使用
@@ -109,33 +73,21 @@ const IncompletionPage = () => {
     <>
       <Header onSearch={setSearchTerm} />
       <main>
-        <AddItemForm onAdd={handleAddItem} />
-
-        <div className="button-area">
+        <div className="button-area purchased-button-area">
           <ActionButton
-            label="購入"
-            className="complete-button"
-            onClick={handleComplete}
+            label="戻す"
+            className="back-button"
+            onClick={handleBack}
           />
           <ActionButton
             label="削除"
             className="delete-button"
             onClick={handleDelete}
           />
-          {checkedIds.length === 1 && (
-            <ActionButton
-              label="編集"
-              className="edit-button"
-              onClick={() => {
-                const target = items.find((item) => item.id === checkedIds[0]);
-                setEditingItem(target);
-              }}
-            />
-          )}
         </div>
 
         <ItemList
-          title="未購入リスト"
+          title="購入済リスト"
           items={filteredItems}
           checkedIds={checkedIds}
           setCheckedIds={setCheckedIds}
@@ -144,16 +96,7 @@ const IncompletionPage = () => {
           }
         />
       </main>
-
-      {editingItem && (
-        <EditModal
-          item={editingItem}
-          onClose={() => setEditingItem(null)}
-          onUpdate={handleUpdate}
-        />
-      )}
     </>
   );
 };
-
-export default IncompletionPage;
+export default Purchased;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import Login from './Login';
 import { Link, useLocation } from 'react-router-dom';
 import Logout from './Logout';
 import { PiShoppingCartFill } from 'react-icons/pi';
@@ -66,9 +65,9 @@ const Header = ({ onSearch }) => {
     <header>
       <div
         className={`header-list ${
-          location.pathname === '/completion'
-            ? 'header-complete'
-            : 'header-incomplete'
+          location.pathname === '/purchased'
+            ? 'header-purchased'
+            : 'header-unpurchased'
         }`}
       >
         <h1>お買い物リスト</h1>
@@ -95,14 +94,14 @@ const Header = ({ onSearch }) => {
           </button>
 
           <nav>
-            {location.pathname === '/incompletion' ? (
-              <Link to="/completion">
-                <PiShoppingCartFill className="completion-icon" />
+            {location.pathname === '/unpurchased' ? (
+              <Link to="/purchased">
+                <PiShoppingCartFill className="purchased-icon" />
                 購入済一覧へ
               </Link>
             ) : (
-              <Link to="/incompletion">
-                <PiShoppingCartLight className="incompletion-icon" />
+              <Link to="/unpurchased">
+                <PiShoppingCartLight className="unpurchased-icon" />
                 未購入一覧へ
               </Link>
             )}

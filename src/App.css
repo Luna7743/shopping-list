@@ -18,10 +18,10 @@ body {
   width: 100%;
   padding: 20px;
 }
-.header-list.header-complete {
+.header-list.header-purchased {
   background: rgb(220, 142, 25);
 }
-.header-list.header-incomplete {
+.header-list.header-unpurchased {
   background: rgb(160, 208, 88);
 }
 .header-list h1 {
@@ -67,10 +67,10 @@ body {
   font-size: 12px;
   gap: 4px;
 }
-.header-list .link-area nav a .completion-icon {
+.header-list .link-area nav a .purchased-icon {
   font-size: 22px;
 }
-.header-list .link-area nav a .incompletion-icon {
+.header-list .link-area nav a .unpurchased-icon {
   font-size: 22px;
 }
 
@@ -175,7 +175,7 @@ main .list-add .count .add-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
-main .completion-button-area {
+main .purchased-button-area {
   margin-top: 3.1rem;
 }
 main .button-area {
@@ -187,7 +187,7 @@ main .button-area button {
   font-size: 14px;
   font-weight: bold;
 }
-main .button-area .complete-button {
+main .button-area .purchased-button {
   background: linear-gradient(#137ef8, rgb(6.2222222222, 101.3333333333, 209.7777777778));
   box-shadow: 0 6px #0b4892;
   border: none;
@@ -197,11 +197,11 @@ main .button-area .complete-button {
   transition: all 0.2s ease;
   cursor: pointer;
 }
-main .button-area .complete-button:hover {
+main .button-area .purchased-button:hover {
   box-shadow: 0 4px #0b4892;
   transform: translateY(2px);
 }
-main .button-area .complete-button:active {
+main .button-area .purchased-button:active {
   box-shadow: 0 1px #0b4892;
   transform: translateY(4px);
 }
