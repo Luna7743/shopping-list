@@ -10,8 +10,12 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 (https://shopping-list-prod-8b864.web.app/)
 
 ### 画面例
-![ホーム画面]
-後から追加
+![ログイン] (shopping-list-screenshot/login.png)
+![未購入] (shopping-list-screenshot/unpurchased.png)
+![購入済] (shopping-list-screenshot/purchased.png)
+![スマホ・未購入] (shopping-list-screenshot/smartphone_unpurchased.png)
+![スマホ・購入済] (shopping-list-screenshot/smartphone_purchased.png)
+
 ---
 
 ## 機能
@@ -36,8 +40,8 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 
 ## ローカルでの起動方法
 
-1. リポジトリをクローン
 ```bash
+1. リポジトリをクローン
 git clone https://github.com/username/shopping-list.git
 cd shopping-list
 
@@ -51,4 +55,3 @@ npm install
 npm run dev
 
 5.ブラウザで http://localhost:5173 を開く
-
