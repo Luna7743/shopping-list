@@ -13,39 +13,11 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 ### 画面例
 
 #### PC 版
-
-### 画面例
-
-| ログイン | 未購入 | 購入済 |
-|---------|--------|--------|
-| ![ログイン](public/shopping-list-screenshot/login.png) <br>ログイン | 
-![未購入](public/shopping-list-screenshot/unpurchased.png) <br>未購入 | 
-![購入済](public/shopping-list-screenshot/purchased.png) <br>購入済 |
-
+![PC画面](public/shopping-list-screenshot/PC_screen.png)
 
 
 #### スマホ版
-
-<div style="display: flex; gap: 10px; flex-wrap: wrap;background-color:rgb(128, 126, 126); padding: 10px; border-radius: 8px;">
-  <div style="border: solid 1px #ccc; text-align: center">
-     <p>スマホ・ログイン</p>
-      <div style="border-top: solid 1px #ccc;">
-        <img src="public/shopping-list-screenshot/smartphone_login.png" alt="スマホ・ログイン" width="200">
-      </div>
-  </div> 
-  <div style="border: solid 1px #ccc; text-align: center">
-     <p>スマホ・未購入</p>
-      <div style="border-top: solid 1px #ccc;">
-        <img src="public/shopping-list-screenshot/smartphone_unpurchased.png" alt="スマホ・未購入" width="200">
-      </div>
-  </div> 
-  <div style="border: solid 1px #ccc; text-align: center">
-     <p>スマホ・購入済</p>
-       <div style="border-top: solid 1px #ccc;">
-        <img src="public/shopping-list-screenshot/smartphone_purchased.png" alt="スマホ・購入済" width="200">
-      </div>
-  </div> 
-</div>
+![スマホ画面](public/shopping-list-screenshot/smartphone_screen.png)
 
 ---
 
