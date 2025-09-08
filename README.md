@@ -11,15 +11,15 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 
 ### 画面例
 ![ログイン]
-(shopping-list-screenshot/login.png)
+(public/shopping-list-screenshot/login.png)
 ![未購入]
-(shopping-list-screenshot/unpurchased.png)
+(public/shopping-list-screenshot/unpurchased.png)
 ![購入済]
 (shopping-list-screenshot/purchased.png)
 ![スマホ・未購入]
-(shopping-list-screenshot/smartphone_unpurchased.png)
+(public/shopping-list-screenshot/smartphone_unpurchased.png)
 ![スマホ・購入済]
-(shopping-list-screenshot/smartphone_purchased.png)
+(public/shopping-list-screenshot/smartphone_purchased.png)
 
 ---
 
