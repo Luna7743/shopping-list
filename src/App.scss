@@ -1,4 +1,4 @@
-$white : #fff;
+$white: #fff;
 
 * {
   margin: 0;
@@ -213,7 +213,7 @@ main {
   }
 
   .purchased-button-area {
-    margin-top: 3.1rem;
+    margin-top: 3.3rem;
   }
 
   .button-area {
@@ -274,11 +274,17 @@ main {
       li {
         list-style: none;
         margin-left: 10px;
+        input[type='checkbox'] {
+          flex: 0 0 auto;
+          width: 16px;
+        }
+
         .list-row {
           display: flex;
           margin-bottom: 10px;
           width: 100%;
           min-width: 400px;
+
           .list-tag {
             display: flex;
             justify-content: space-between;
@@ -376,11 +382,15 @@ main {
 
 // スマホ
 @media (max-width: 767px) {
-// ログイン画面
-.login-layout{
-  width: 100vw;
-  height: 60vh;
-}
+  // ログイン画面
+  .login-layout {
+    width: 100vw;
+    height: 60vh;
+  }
+
+  body {
+    overflow: auto;
+  }
 
   main {
     padding: 0 0 0 10px;
@@ -390,8 +400,14 @@ main {
       .input-add-area {
         width: 50%;
         min-width: 0;
+        input[type='text'] {
+          font-size: 16px; // 自動ズーム防止
+        }
       }
       .count {
+        input[type='number'] {
+          font-size: 16px; // 数字入力も16px以上
+        }
         button {
           padding: 3px;
         }
@@ -423,14 +439,14 @@ main {
         padding: 3px;
         border-radius: 8px;
       }
-      nav{
-        a{
+      nav {
+        a {
           font-size: 10px;
         }
       }
     }
-    .logout-area{
-      button{
+    .logout-area {
+      button {
         font-size: 10px;
       }
     }
@@ -449,6 +465,7 @@ main {
 
     input {
       width: 100%;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
       padding-left: 10px;

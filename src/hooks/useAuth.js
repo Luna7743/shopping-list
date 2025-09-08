@@ -17,7 +17,7 @@ export function useAuth() {
 
   //ログイン関数
   const login = async () => {
-    await signInWithPopup(auth, provider);
+    await signInWithPopup(auth, provider); // ここで Google ログイン
   };
 
   //ログアウト関数

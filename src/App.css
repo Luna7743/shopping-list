@@ -176,7 +176,7 @@ main .list-add .count .add-btn:hover {
   cursor: pointer;
 }
 main .purchased-button-area {
-  margin-top: 3.1rem;
+  margin-top: 3.3rem;
 }
 main .button-area {
   margin-bottom: 30px;
@@ -294,6 +294,10 @@ main .item-area ul li {
   list-style: none;
   margin-left: 10px;
 }
+main .item-area ul li input[type=checkbox] {
+  flex: 0 0 auto;
+  width: 16px;
+}
 main .item-area ul li .list-row {
   display: flex;
   margin-bottom: 10px;
@@ -393,6 +397,9 @@ main .item-area ul li .list-row .list-tag .item-part {
     width: 100vw;
     height: 60vh;
   }
+  body {
+    overflow: auto;
+  }
   main {
     padding: 0 0 0 10px;
   }
@@ -403,6 +410,12 @@ main .item-area ul li .list-row .list-tag .item-part {
   main .list-add .input-add-area {
     width: 50%;
     min-width: 0;
+  }
+  main .list-add .input-add-area input[type=text] {
+    font-size: 16px;
+  }
+  main .list-add .count input[type=number] {
+    font-size: 16px;
   }
   main .list-add .count button {
     padding: 3px;
@@ -449,6 +462,7 @@ main .item-area ul li .list-row .list-tag .item-part {
   }
   .dropdown-search input {
     width: 100%;
+    font-size: 16px;
     border: none;
     border-radius: 8px;
     padding-left: 10px;
