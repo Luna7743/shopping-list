@@ -10,11 +10,11 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 (https://shopping-list-prod-8b864.web.app/)
 
 ### 画面例
-![ログイン](shopping-list-screenshot/login.png)
-![未購入](shopping-list-screenshot/unpurchased.png)
-![購入済](shopping-list-screenshot/purchased.png)
-![スマホ・未購入](shopping-list-screenshot/smartphone_unpurchased.png)
-![スマホ・購入済](shopping-list-screenshot/smartphone_purchased.png)
+![ログイン](public/shopping-list-screenshot/login.png)
+![未購入](public/shopping-list-screenshot/unpurchased.png)
+![購入済](public/shopping-list-screenshot/purchased.png)
+![スマホ・未購入](public/shopping-list-screenshot/smartphone_unpurchased.png)
+![スマホ・購入済](public/shopping-list-screenshot/smartphone_purchased.png)
 
 ---
 
