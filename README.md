@@ -14,27 +14,13 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 
 #### PC 版
 
-<div style="display: flex; gap: 10px; flex-wrap: wrap;background-color:rgb(131, 126, 126); padding: 10px; border-radius: 8px;">
-
-  <div style="border: solid 1px #ccc; text-align: center">
-     <p>ログイン</p>
-      <div style="border-top: solid 1px #ccc;">
-        <img src="public/shopping-list-screenshot/login.png" alt="ログイン" width="250">
-      </div>
-  </div> 
-  <div style="border: solid 1px #ccc; text-align: center">
-     <p>未購入</p>
-      <div style="border-top: solid 1px #ccc;">
-          <img src="public/shopping-list-screenshot/unpurchased.png" alt="未購入" width="250">
-      </div>
-  </div> 
-  <div style="border: solid 1px #ccc; text-align: center">
-     <p>購入済</p>
-      <div style="border-top: solid 1px #ccc;">
-        <img src="public/shopping-list-screenshot/purchased.png" alt="購入済" width="250">
-      </div>
-  </div> 
-</div>
+| <div style="background-color:#f0f0f0; border:1px solid #ccc; border-radius:8px; padding:5px; text-align:center;">
+  ![ログイン](public/shopping-list-screenshot/login.png)
+  </div> | <div style="background-color:#f0f0f0; border:1px solid #ccc; border-radius:8px; padding:5px; text-align:center;">
+  ![未購入](public/shopping-list-screenshot/unpurchased.png)
+  </div> | <div style="background-color:#f0f0f0; border:1px solid #ccc; border-radius:8px; padding:5px; text-align:center;">
+  ![購入済](public/shopping-list-screenshot/purchased.png)
+  </div> |
 
 #### スマホ版
 
