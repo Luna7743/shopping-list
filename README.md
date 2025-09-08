@@ -18,19 +18,15 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 
 | ログイン | 未購入 | 購入済 |
 |---------|--------|--------|
-| <div style="border:1px solid #ccc; border-radius:8px; padding:5px; text-align:center;">
-  ![ログイン](public/shopping-list-screenshot/login.png)<br>ログイン
-  </div> | <div style="border:1px solid #ccc; border-radius:8px; padding:5px; text-align:center;">
-  ![未購入](public/shopping-list-screenshot/unpurchased.png)<br>未購入
-  </div> | <div style="border:1px solid #ccc; border-radius:8px; padding:5px; text-align:center;">
-  ![購入済](public/shopping-list-screenshot/purchased.png)<br>購入済
-  </div> |
+| ![ログイン](public/shopping-list-screenshot/login.png) <br>ログイン | 
+![未購入](public/shopping-list-screenshot/unpurchased.png) <br>未購入 | 
+![購入済](public/shopping-list-screenshot/purchased.png) <br>購入済 |
 
 
 
 #### スマホ版
 
-<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+<div style="display: flex; gap: 10px; flex-wrap: wrap;background-color:rgb(128, 126, 126); padding: 10px; border-radius: 8px;">
   <div style="border: solid 1px #ccc; text-align: center">
      <p>スマホ・ログイン</p>
       <div style="border-top: solid 1px #ccc;">
