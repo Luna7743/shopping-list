@@ -12,16 +12,16 @@ React + Vite + Firebase (Authentication / Firestore / Hosting) を使用して�
 ### 画面例
 #### PC版
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="shopping-list-screenshot/login.png" alt="ログイン" width="300">
-  <img src="shopping-list-screenshot/unpurchased.png" alt="未購入" width="300">
-  <img src="shopping-list-screenshot/purchased.png" alt="購入済" width="300">
+  <img src="public/shopping-list-screenshot/login.png" alt="ログイン" width="300">
+  <img src="public/shopping-list-screenshot/unpurchased.png" alt="未購入" width="300">
+  <img src="public/shopping-list-screenshot/purchased.png" alt="購入済" width="300">
 </div>
 
 #### スマホ版
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <img src="shopping-list-screenshot/smartphone_login.png" alt="スマホ・ログイン" width="200">
-  <img src="shopping-list-screenshot/smartphone_purchased.png" alt="スマホ・購入済" width="200">
-  <img src="shopping-list-screenshot/smartphone_unpurchased.png" alt="スマホ・未購入" width="200">
+  <img src="public/shopping-list-screenshot/smartphone_login.png" alt="スマホ・ログイン" width="200">
+  <img src="public/shopping-list-screenshot/smartphone_purchased.png" alt="スマホ・購入済" width="200">
+  <img src="public/shopping-list-screenshot/smartphone_unpurchased.png" alt="スマホ・未購入" width="200">
 </div>
 
 ---
